@@ -1,17 +1,7 @@
 const discord = require('discord.js');
 const bot = new discord.Client();
+
 const prefix = "c!";
-
-bot.commands = new discord.Collection();
-
-require('fs').readdir("./commands/", (err, files) => {
-  console.log("Loading commands...")
-  if (err) return console.log(`Command loading failed!`);
-  files.filter(f => f.split(".").pop() === "js").forEach((f, i) => {
-    bot.commands.set(require(`./commands/${f}`).help.name, require(`./commands/${f}`));
-  })
-})
-
 
 bot.on('ready', () => {
   console.log('I am ready!')
@@ -32,12 +22,21 @@ bot.on('message', message => {
 		message.channel.send("bar!");
 	}
 	if (message.content === prefix + 'ban') {
-	if (!message.member.permissions.has('ADMINISTRATOR')) return message.reply('you do not have permission to access that command.');
-	const member = message.mentions.members.first();
+	if (!message.member.permissions.has('BAN_MEMBERS')) return message.reply('you do not have permission to access that command.');
+	let member = message.mentions.members.first();
 	if (!member) return message.reply('Invalid usage, please do \`c!ban @user\`');
 	member.ban({})
     reason: {}
 }
-});
+	if (message.content == prefix + "help") {
+		let channel = message.channel
+  
+  const embed = new discord.RichEmbed()
+  .setTitle("Commando Help")
+  .setDescription(`Utility: Ping, and Ban\n\nFun: avatar, foo. All for now!`)
+  .setThumbnail("https://cdn.discordapp.com/attachments/365166852172939265/393478008909856778/Creeper_Network.jpg")
+  
+channel.send(embed)
+	}
 
 bot.login(process.env.token);
