@@ -46,7 +46,7 @@ bot.on('message', message => {
 	if (message.content == prefix + "help") {
   const embed = new discord.RichEmbed()
   .setTitle("Commando Help")
-  .setDescription(`Utility: Ping, and Ban\n\nFun: avatar, foo. All for now!`)
+  .setDescription(`Utility: Ping, Ban and invite\n\nFun: avatar, foo. All for now!`)
   .setThumbnail("https://cdn.discordapp.com/attachments/365166852172939265/393478008909856778/Creeper_Network.jpg")
   
 channel.send(embed)
