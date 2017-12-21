@@ -1,10 +1,10 @@
-const Discord = require('discord.js');
-const bot = new Discord.Client();
+const discord = require('discord.js');
+const bot = new discord.Client();
 const prefix = "c!";
 
 bot.on('ready', () => {
   console.log('I am ready!')
-	bot.user.setGame(`c!help | ${client.guilds.array().length} server(s)`)
+	bot.user.setGame(`c!help | ${bot.guilds.array().length} server(s)`)
 	bot.user.setUsername('CommandoBot')
 });
 
