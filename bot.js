@@ -2,6 +2,17 @@ const discord = require('discord.js');
 const bot = new discord.Client();
 const prefix = "c!";
 
+bot.commands = new discord.Collection();
+
+require('fs').readdir("./commands/", (err, files) => {
+  console.log("Loading commands...")
+  if (err) return console.log(`Command loading failed!`);
+  files.filter(f => f.split(".").pop() === "js").forEach((f, i) => {
+    bot.commands.set(require(`./commands/${f}`).help.name, require(`./commands/${f}`));
+  })
+})
+
+
 bot.on('ready', () => {
   console.log('I am ready!')
 	bot.user.setGame(`c!help | ${bot.guilds.array().length} server(s)`)
