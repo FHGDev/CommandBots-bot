@@ -11,7 +11,7 @@ bot.on('ready', () => {
 
 bot.on('message', message => {
   if (message.content === prefix +'ping') {
-    message.reply('pong');
+    message.channel.send(":ping_pong: PONG! My ping is " + bot.ping + "ms!");
 
 }
 	 // If the message is "what is my avatar"
