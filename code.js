@@ -1,13 +1,14 @@
 const Discord = require('discord.js');
-const client = new Discord.Client();
+const bot = new Discord.Client();
 const prefix = "c!";
 
-client.on('ready', () => {
+bot.on('ready', () => {
   console.log('I am ready!')
-	client.user.setGame(`c!help | ${client.guilds.array().length} server(s)`)
+	bot.user.setGame(`c!help | ${client.guilds.array().length} server(s)`)
+	bot.user.setUsername('CommandoBot')
 });
 
-client.on('message', message => {
+bot.on('message', message => {
   if (message.content === prefix +'ping') {
     message.reply('pong');
 
@@ -29,4 +30,4 @@ client.on('message', message => {
 }
 });
 
-client.login(process.env.token);
+bot.login(process.env.token);
