@@ -37,6 +37,7 @@ bot.on('message', message => {
   .setThumbnail("https://cdn.discordapp.com/attachments/365166852172939265/393478008909856778/Creeper_Network.jpg")
   
 channel.send(embed)
-	}
+}
+});
 
 bot.login(process.env.token);
