@@ -37,4 +37,4 @@ if (message.content === prefix + 'ban') {
 }
 });
 
-client.login('MzgyMDAyMTA0NTc2OTAxMTIx.DPPu_A.DLjTl_tqLFNYBGLhWoKxvp1ECos');
+client.login(process.env.token);
