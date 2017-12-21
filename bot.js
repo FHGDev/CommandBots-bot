@@ -33,7 +33,7 @@ bot.on('message', message => {
 			member.ban().then((member) => {
 				channel.send(`:wave: ${member.displayName} has been kicked! :point_right:`)
 			}).catch(() => {
-				channel.send(`I can't ban without the permissions...`)
+				channel.send(`I can't ban without the permissions...`) 
 			})
 		} else {
 			
