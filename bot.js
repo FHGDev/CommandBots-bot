@@ -1,5 +1,4 @@
-const pkg = require('./package.json')
-const discord = pkg.dependencies.discord.js;
+const discord = require('discord.js')
 const bot = new discord.Client();
 const prefix = "c!";
 
