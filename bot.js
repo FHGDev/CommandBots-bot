@@ -26,7 +26,7 @@ bot.on('message', message => {
 	if (message.content === prefix + 'foo') {
 		message.channel.send("bar!");
 	}
-	if (message.content === prefix + 'ban') {
+	if (message.content.startsWith(prefix + "ban")) {
 		if (message.member.hasPermission("BAN_MEMBERS")) {
 			let member = message.mentions.members.first();
 			// If successful, do this
