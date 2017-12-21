@@ -17,10 +17,10 @@ bot.on('message', message => {
 	 // If the message is "what is my avatar"
   if (message.content === prefix + 'avatar') {
     // Send the user's avatar URL
-    message.reply(message.author.avatarURL);
+    message.channel.send(message.author.avatarURL);
   }
 	if (message.content === prefix + 'foo') {
-		message.channel.sendMessage("bar!");
+		message.channel.send("bar!");
 	}
 	if (message.content === prefix + 'ban') {
 	if (!message.member.permissions.has('ADMINISTRATOR')) return message.reply('you do not have permission to access that command.');
