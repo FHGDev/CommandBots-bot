@@ -31,7 +31,7 @@ bot.on('message', message => {
 			let member = message.mentions.members.first();
 			// If successful, do this
 			member.ban().then((member) => {
-				channel.send(`:wave: ${member.displayName} has been kicked! :point_right:`)
+				channel.send(`:wave: ${member.displayName} has been banned! :point_right:`)
 			}).catch(() => {
 				channel.send(`I can't ban without the permissions...`) 
 			})
