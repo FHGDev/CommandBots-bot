@@ -9,6 +9,8 @@ bot.on('ready', () => {
 });
 
 bot.on('message', message => {
+	let channel = message.channel
+	
   if (message.content === prefix +'ping') {
     message.channel.send(":ping_pong: PONG! My ping is " + bot.ping + "ms!");
 
@@ -22,15 +24,19 @@ bot.on('message', message => {
 		message.channel.send("bar!");
 	}
 	if (message.content === prefix + 'ban') {
-	if (!message.member.permissions.has('BAN_MEMBERS')) return message.reply('you do not have permission to access that command.');
-	let member = message.mentions.members.first();
-	if (!member) return message.reply('Invalid usage, please do \`c!ban @user\`');
-	member.ban({})
-    reason: {}
-}
+		if (message.member.hasPermission("BAN_MEMBERS")) {
+			let member = message.mentions.members.first();
+			// If successful, do this
+			member.ban().then((member) => {
+				channel.send(`:wave: ${member.displayName} has been kicked! :point_right:`)
+			}).catch(() => {
+				channel.send(`I can't ban without the permissions...`)
+			})
+		} else {
+			
+		}
+	}
 	if (message.content == prefix + "help") {
-		let channel = message.channel
-  
   const embed = new discord.RichEmbed()
   .setTitle("Commando Help")
   .setDescription(`Utility: Ping, and Ban\n\nFun: avatar, foo. All for now!`)
