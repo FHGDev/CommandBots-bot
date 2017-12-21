@@ -5,7 +5,10 @@ const prefix = "c!";
 
 bot.on('ready', () => {
   console.log('I am ready!')
-	bot.user.setGame(`c!help | ${bot.guilds.array().length} server(s)`)
+	bot.user.setGame(`Loading ${bot.user.username}`)
+	setInterval(() => {
+		bot.user.setGame(`c!help | ${bot.guilds.array().length} server(s)
+	}, 10000)
 });
 
 bot.on('message', message => {
