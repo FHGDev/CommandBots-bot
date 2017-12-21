@@ -18,6 +18,10 @@ bot.on('message', message => {
     message.channel.send(":ping_pong: PONG! My ping is " + bot.ping + "ms!");
 
 }
+	if (message.content === prefix +'invite') {
+    message.channel.send("https://discordapp.com/oauth2/authorize?client_id=382002104576901121&scope=bot&permissions=301153342");
+
+}
 	 // If the message is "what is my avatar"
   if (message.content === prefix + 'avatar') {
     // Send the user's avatar URL
