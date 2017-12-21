@@ -3,7 +3,8 @@ const client = new Discord.Client();
 const prefix = "c!";
 
 client.on('ready', () => {
-  console.log('I am ready!');
+  console.log('I am ready!')
+	client.user.setGame(`c!help | ${client.guilds.array().length} server(s)`)
 });
 
 client.on('message', message => {
