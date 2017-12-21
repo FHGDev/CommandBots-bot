@@ -4,7 +4,7 @@ const prefix = "c!";
 
 bot.on('ready', () => {
   console.log('I am ready!')
-	bot.user.setGame(`c!help | ${client.guilds.array().length} server(s)`)
+	bot.user.setGame(`c!help | ${bot.guilds.array().length} server(s)`)
 	bot.user.setUsername('CommandoBot')
   bot.user.setAvatar('https://cdn.discordapp.com/attachments/365166852172939265/393478008909856778/Creeper_Network.jpg')
 });
@@ -15,7 +15,7 @@ bot.on('message', message => {
 
 }
 	 // If the message is "what is my avatar"
-  if (message.content === prefix + 'what is my avatar') {
+  if (message.content === prefix + 'avatar') {
     // Send the user's avatar URL
     message.reply(message.author.avatarURL);
   }
