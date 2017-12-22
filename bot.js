@@ -40,7 +40,7 @@ bot.on('message', message => {
 				channel.send(`I can't ban without the permissions...`) 
 			})
 		} else {
-			
+			channel.send(`Sorry, you don't have the permissions to ban...`)
 		}
 	}
 	if (message.content == prefix + "help") {
