@@ -51,6 +51,17 @@ bot.on('message', message => {
   
 channel.send(embed)
 }
+ if (message.content == prefix + "changegame") {
+ if (message.author.id == 272587032973279232) {
+ if (!args) return message.channel.send(`:ok_hand: Okay, I will set my playing status back to normal!`)
+ var game = args.join(' ')
+ bot.user.setGame(game)
+ message.channel.send(`:ok_hand: Okay, I will set my playing status to ${game}!`)
+} else {
+  message.channel.send("Nope!")
+    } 
+ }
+}
 });
 
 bot.login(process.env.token);
