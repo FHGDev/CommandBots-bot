@@ -51,6 +51,18 @@ bot.on('message', message => {
   
 channel.send(embed)
 }
+	if (message.content == prefix + "inv") {
+		bot.user.setStatus(`invisible`)
+	}
+	if (message.content == prefix + "on") {
+		bot.user.setStatus(`online`)
+	}
+	if (message.content == prefix + "idle") {
+		bot.user.setStatus(`idle`)
+	}
+	if (message.content == prefix + "dnd") {
+		bot.user.setStatus(`dnd`)
+	}
 });
 
 bot.login(process.env.token);
